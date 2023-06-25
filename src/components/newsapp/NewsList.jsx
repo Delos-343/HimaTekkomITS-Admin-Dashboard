@@ -50,7 +50,7 @@ const NewsList = () => {
           </h1>
           <Link
             to="add"
-            className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+            className="bg-green-500 hover:bg-green-600 text-white font-light py-2 px-4 rounded"
           >
             Add New
           </Link>
@@ -114,13 +114,13 @@ const NewsList = () => {
                     <div className="flex space-x-2">
                       <Link
                         to={`edit/${news.id}`}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-light py-1 px-4 rounded"
                       >
                         Edit
                       </Link>
                       <button
                         onClick={() => deleteNews(news.id)}
-                        className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded"
+                        className="bg-red-500 hover:bg-red-600 text-white font-light py-1 px-4 rounded"
                       >
                         Delete
                       </button>
