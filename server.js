@@ -21,6 +21,7 @@ const sequelize = new Sequelize('n1572535_beritahimpunantekkomits', 'n1572535_da
 
 // Define Notes model
 const Notes = sequelize.define('Notes', {
+  id: DataTypes.INTEGER,
   author: DataTypes.STRING,
   title: DataTypes.STRING,
   content: DataTypes.TEXT,
