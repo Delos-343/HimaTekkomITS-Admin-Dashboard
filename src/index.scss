@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-#root, body, html {
+#root {
   width: 100%;
   height: 100%;
-  padding: 2%;
+  padding-bottom: 2%;
   background-color: #F1F1F1;
 }
