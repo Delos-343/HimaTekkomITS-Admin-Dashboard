@@ -14,79 +14,73 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://adminkeren:banyakbelajarpintar@cluster0.qcaoomm.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Schema
-const newsSchema = new mongoose.Schema({
+const notesSchema = new mongoose.Schema({
   title: String,
   content: String,
-  image: String,
   date: Date,
   created_at: { type: Date, default: Date.now }
 });
 
 // Model
-const News = mongoose.model('News', newsSchema);
+const Notes = mongoose.model('Notes', notesSchema);
 
 // Routes
-app.get('/news', async (req, res) => {
-  const news = await News.find();
-  res.send(news);
+app.get('/', async (req, res) => {
+  const notes = await Notes.find();
+  res.send(notes);
 });
 
-app.post('/news', async (req, res) => {
-  const news = new News({
+app.post('/', async (req, res) => {
+  const notes = new Notes({
     title: req.body.title,
     content: req.body.content,
-    image: req.body.image,
     date: req.body.date
   });
-  await news.save();
-  res.send(news);
+  await notes.save();
+  res.send(notes);
 });
 
-app.get('/news/:id', async (req, res) => {
+app.get('/:id', async (req, res) => {
   try {
-    const news = await News.findOne({ _id: req.params.id });
-    res.send(news);
+    const notes = await Notes.findOne({ _id: req.params.id });
+    res.send(notes);
   } catch {
     res.status(404);
-    res.send({ error: "News doesn't exist!" });
+    res.send({ error: "Note doesn't exist!" });
   }
 });
 
-app.patch('/news/:id', async (req, res) => {
+app.patch('/', async (req, res) => {
   try {
-    const news = await News.findOne({ _id: req.params.id });
+    const notes = await Notes.findOne({ _id: req.params.id });
 
     if (req.body.title) {
-      news.title = req.body.title;
+      notes.title = req.body.title;
     }
 
     if (req.body.content) {
-      news.content = req.body.content;
-    }
-
-    if (req.body.image) {
-      news.image = req.body.image;
+      notes.content = req.body.content;
     }
 
     if (req.body.date) {
-      news.date = req.body.date;
+      notes.date = req.body.date;
     }
 
-    await news.save();
-    res.send(news);
+    await notes.save();
+    res.send(notes);
   } catch {
     res.status(404);
-    res.send({ error: "News doesn't exist!" });
+    res.send({ error: "Note doesn't exist!" });
   }
 });
 
-app.delete('/news/:id', async (req, res) => {
+app.delete('/:id', async (req, res) => {
   try {
-    await News.deleteOne({ _id: req.params.id });
+    await Notes.deleteOne({ _id: req.params.id });
     res.status(204).send();
   } catch {
     res.status(404);
-    res.send({ error: "News doesn't exist!" });
+    res.send({ error: "Note doesn't exist!" });
   }
 });
 
