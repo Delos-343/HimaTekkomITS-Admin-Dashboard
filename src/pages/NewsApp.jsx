@@ -12,8 +12,8 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="w-full py-10 justify-center items-middle font-bold tracking-wider text-center text-5xl text-blue-300">
-        Dawe's <span className="text-white"> Dashboard </span>
+      <div className="w-full py-10 justify-center items-middle font-bold tracking-wider text-center text-5xl text-white">
+        HimaTekkom Dashboard
       </div>
       <div className="flex justify-center items-center mb-5 tracking-widest">
         <ul className="flex space-x-14">
