@@ -41,7 +41,9 @@ const NotesApp = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Notes App</h1>
+      <h1 className="text-2xl text-blue-500 font-bold mb-4">
+        Notes App
+      </h1>
       <div className="mb-4 flex flex-col sm:flex-row">
         <input
           type="text"
