@@ -12,8 +12,8 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="w-full py-10 justify-center items-middle font-semibold tracking-wide text-center text-5xl">
-        Admin Dashboard
+      <div className="w-full py-10 justify-center items-middle font-semibold tracking-wider text-center text-5xl">
+        Dawe's TA ~ Dashboard
       </div>
       <div className="flex justify-center items-center mb-5 tracking-widest">
         <ul className="flex space-x-14">
