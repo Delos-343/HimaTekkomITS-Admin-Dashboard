@@ -59,25 +59,25 @@ const NewsApp = () => {
           <table className="min-w-full">
             <thead>
               <tr className="bg-gray-50">
-                <th className="py-2 px-4 border-b">
+                <th className="py-2 px-4 border-b font-semibold">
                   No
                 </th>
-                <th className="py-2 px-4 border-b">
+                <th className="py-2 px-4 border-b font-semibold">
                   Author
                 </th>
-                <th className="py-2 px-4 border-b">
+                <th className="py-2 px-4 border-b font-semibold">
                   Title
                 </th>
-                <th className="py-2 px-4 border-b">
+                <th className="py-2 px-4 border-b font-semibold">
                   Caption
                 </th>
-                <th className="py-2 px-4 border-b">
+                <th className="py-2 px-4 border-b font-semibold">
                   Content
                 </th>
-                <th className="py-2 px-4 border-b">
+                <th className="py-2 px-4 border-b font-semibold">
                   Image
                 </th>
-                <th className="py-2 px-4 border-b">
+                <th className="py-2 px-4 border-b font-semibold">
                   Actions
                 </th>
               </tr>

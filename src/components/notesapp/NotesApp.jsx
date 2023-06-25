@@ -53,7 +53,7 @@ const NotesApp = () => {
         <input
           type="text"
           placeholder="Title"
-          className="border border-gray-400 rounded px-2 py-1 mb-2 sm:mr-2 sm:mb-0"
+          className="font-semibold border border-gray-400 rounded px-2 py-1 mb-2 sm:mr-2 sm:mb-0"
           value={currentNote.title}
           onChange={(e) =>
             setCurrentNote({ ...currentNote, title: e.target.value })
