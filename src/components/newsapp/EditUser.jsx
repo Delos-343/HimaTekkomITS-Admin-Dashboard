@@ -119,10 +119,10 @@ const EditUser = () => {
           </div>
 
           <div className="flex justify-between">
-            <button type="submit" className="btn button is-success">
+            <button type="submit">
               Update
             </button>
-            <Link to={`/`} className="btn button is-success">
+            <Link to={`/`}>
               Go Back
             </Link>
           </div>
