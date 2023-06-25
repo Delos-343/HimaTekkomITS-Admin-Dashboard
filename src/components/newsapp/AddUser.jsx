@@ -79,13 +79,15 @@ const AddUser = () => {
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Content
             </label>
-            <input
-              type="text"
-              className="input px-2 py-1"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              placeholder="Content"
-            />
+            <div className="control">
+              <textarea
+                className="input px-2 py-1"
+                rows="5"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Content"
+              />
+            </div>
           </div>
 
           <div className="mb-4">
