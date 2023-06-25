@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NewsList } from "../components/newsapp";
+import { NewsApp } from "../components/newsapp";
 import { NotesApp } from "../components/notesapp";
 
 const HomePage = () => {
@@ -42,7 +42,7 @@ const HomePage = () => {
       )}
       {activeTab === 'news' && (
         <div className="flex justify-center">
-          <NewsList />
+          <NewsApp />
         </div>
       )}
     </>

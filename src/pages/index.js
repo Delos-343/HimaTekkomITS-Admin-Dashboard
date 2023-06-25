@@ -1,1 +1,1 @@
-export { default as NewsApp } from './NewsApp';
+export { default as HomePage } from './HomePage';
