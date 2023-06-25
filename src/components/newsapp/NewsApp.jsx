@@ -107,7 +107,7 @@ const NewsApp = () => {
                     <img
                       src={news.image}
                       alt="News Image"
-                      className="h-14 w-18 object-cover"
+                      className="h-16 w-20 object-contain"
                     />
                   </td>
                   <td className="py-3 px-4 border-b">
