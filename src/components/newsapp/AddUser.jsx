@@ -5,21 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 const AddUser = () => {
 
   const [author, setAuthor] = useState("");
-  
+
   const [title, setTitle] = useState("");
 
   const [caption, setCaption] = useState("");
 
   const [content, setContent] = useState("");
-  
-  const [image, setImage] = useState("");
 
+  const [image, setImage] = useState("");
+  
   const navigate = useNavigate();
 
   const saveUser = async (e) => {
-
     e.preventDefault();
-
     try {
       await axios.post("https://muhdaffawibi.com/news", {
         author,
@@ -28,116 +26,91 @@ const AddUser = () => {
         content,
         image,
       });
-
       navigate("/");
-
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="columns mt-5 is-centered">
-      <div className="column is-half">
+    <div className="flex justify-center mt-5">
+      <div className="container bg-white rounded-lg shadow-lg p-6">
         <form onSubmit={saveUser}>
-          <div className="field">
-            <label className="label">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Author
             </label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-                placeholder="Author"
-              />
-            </div>
+            <input
+              type="text"
+              className="input"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              placeholder="Author"
+            />
           </div>
 
-          <br />
-
-          <div className="field">
-            <label className="label">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Title
             </label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Title"
-              />
-            </div>
+            <input
+              type="text"
+              className="input"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Title"
+            />
           </div>
 
-          <br />
-
-          <div className="field">
-            <label className="label">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Caption
             </label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={caption}
-                onChange={(e) => setCaption(e.target.value)}
-                placeholder="Caption"
-              />
-            </div>
+            <input
+              type="text"
+              className="input"
+              value={caption}
+              onChange={(e) => setCaption(e.target.value)}
+              placeholder="Caption"
+            />
           </div>
 
-          <br />
-
-          <div className="field">
-            <label className="label">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Content
             </label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                placeholder="Content"
-              />
-            </div>
+            <input
+              type="text"
+              className="input"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Content"
+            />
           </div>
 
-          <br />
-
-          <div className="field">
-            <label className="label">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Image
             </label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                placeholder="Image"
-              />
-            </div>
+            <input
+              type="text"
+              className="input"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              placeholder="Image"
+            />
           </div>
 
-          <br />
-
-          <div className="field">
-            <button type="submit" className="button is-success">
+          <div className="flex justify-between">
+            <button type="submit" className="btn button is-success">
               Save
             </button>
+            <Link to={`/`} className="btn button is-success">
+              Go Back
+            </Link>
           </div>
-
-          <br />
-
         </form>
       </div>
-      <Link to={`/`} className="btn button is-success">
-        Go Back
-      </Link>
     </div>
   );
 };
