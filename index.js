@@ -19,8 +19,8 @@ const sequelize = new Sequelize('n1572535_beritahimpunantekkomits', 'n1572535_da
   dialect: 'mariadb',
 });
 
-// Define News model
-const News = sequelize.define('News', {
+// Define Notes model
+const Notes = sequelize.define('Notes', {
   author: DataTypes.STRING,
   title: DataTypes.STRING,
   caption: DataTypes.TEXT,
@@ -29,66 +29,66 @@ const News = sequelize.define('News', {
 });
 
 // Create the table if it doesn't exist
-News.sync();
+Notes.sync();
 
-// Create a news
-app.post('/news', async (req, res) => {
+// Create a note
+app.post('/note', async (req, res) => {
   try {
-    const news = await News.create(req.body);
-    res.json(news);
+    const notes = await Notes.create(req.body);
+    res.json(notes);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Get all news
-app.get('/news', async (req, res) => {
+// Get all notes
+app.get('/note', async (req, res) => {
   try {
-    const news = await News.findAll();
-    res.json(news);
+    const notes = await Notes.findAll();
+    res.json(notes);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Get a news by ID
-app.get('/news/:id', async (req, res) => {
+// Get a note by ID
+app.get('/note/:id', async (req, res) => {
   try {
-    const news = await News.findByPk(req.params.id);
-    if (news) {
-      res.json(news);
+    const notes = await Notes.findByPk(req.params.id);
+    if (notes) {
+      res.json(notes);
     } else {
-      res.status(404).json({ error: 'News not found' });
+      res.status(404).json({ error: 'Note not found' });
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Update a news by ID
-app.put('/news/:id', async (req, res) => {
+// Update a note by ID
+app.put('/note/:id', async (req, res) => {
   try {
-    const [updatedRows] = await News.update(req.body, {
+    const [updatedRows] = await Notes.update(req.body, {
       where: { id: req.params.id },
     });
     if (updatedRows === 1) {
-      res.json({ message: 'News updated successfully' });
+      res.json({ message: 'Note updated successfully' });
     } else {
-      res.status(404).json({ error: 'News not found' });
+      res.status(404).json({ error: 'Note not found' });
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Delete a news by ID
-app.delete('/news/:id', async (req, res) => {
+// Delete a note by ID
+app.delete('/note/:id', async (req, res) => {
   try {
-    const deletedRows = await News.destroy({ where: { id: req.params.id } });
+    const deletedRows = await Notes.destroy({ where: { id: req.params.id } });
     if (deletedRows === 1) {
-      res.json({ message: 'News deleted successfully' });
+      res.json({ message: 'Note deleted successfully' });
     } else {
-      res.status(404).json({ error: 'News not found' });
+      res.status(404).json({ error: 'Note not found' });
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
