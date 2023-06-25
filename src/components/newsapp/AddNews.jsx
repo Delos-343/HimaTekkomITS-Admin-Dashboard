@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const AddUser = () => {
+const AddNews = () => {
 
   const [author, setAuthor] = useState("");
 
@@ -16,7 +16,7 @@ const AddUser = () => {
   
   const navigate = useNavigate();
 
-  const saveUser = async (e) => {
+  const saveNews = async (e) => {
     e.preventDefault();
     try {
       await axios.post("https://muhdaffawibi.com/news", {
@@ -35,7 +35,7 @@ const AddUser = () => {
   return (
     <div className="flex justify-center mt-5">
       <div className="container bg-white rounded-lg shadow-lg p-6">
-        <form onSubmit={saveUser}>
+        <form onSubmit={saveNews}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Author
@@ -123,4 +123,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default AddNews;

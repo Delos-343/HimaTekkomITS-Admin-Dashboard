@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const EditUser = () => {
+const EditNews = () => {
 
   const [author, setAuthor] = useState();
 
@@ -19,10 +19,10 @@ const EditUser = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    getUserById();
+    getNewsById();
   }, []);
 
-  const updateUser = async (e) => {
+  const updateNews = async (e) => {
     e.preventDefault();
     try {
       await axios.put(`https://muhdaffawibi.com/news/${id}`, {
@@ -38,7 +38,7 @@ const EditUser = () => {
     }
   };
 
-  const getUserById = async () => {
+  const getNewsById = async () => {
     const response = await axios.get(`https://muhdaffawibi.com/news/${id}`);
     setAuthor(response.data.author);
     setTitle(response.data.title);
@@ -50,7 +50,7 @@ const EditUser = () => {
   return (
     <div className="flex justify-center mt-5">
       <div className="container bg-white rounded-lg shadow-lg p-6">
-        <form onSubmit={updateUser}>
+        <form onSubmit={updateNews}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Author
@@ -138,4 +138,4 @@ const EditUser = () => {
   );
 };
 
-export default EditUser;
+export default EditNews;

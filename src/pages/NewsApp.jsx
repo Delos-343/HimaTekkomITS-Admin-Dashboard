@@ -3,6 +3,7 @@ import { NewsList } from "../components/newsapp";
 import { NotesApp } from "../components/notesapp";
 
 const HomePage = () => {
+  
   const [activeTab, setActiveTab] = useState('dashboard');
 
   const handleTabClick = (tab) => {

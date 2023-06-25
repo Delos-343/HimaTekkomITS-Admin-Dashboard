@@ -105,7 +105,7 @@ const UserList = () => {
                     <img
                       src={user.image}
                       alt="User Image"
-                      className="h-14 w-18"
+                      className="h-14 w-18 object-contain"
                     />
                   </td>
                   <td className="py-3 px-4 border-b">
