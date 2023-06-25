@@ -45,8 +45,8 @@ const NewsApp = () => {
     <div className="flex justify-center mt-5">
       <div className="container bg-white rounded-lg shadow-lg">
         <div className="flex justify-between items-center px-4 py-2 bg-blue-500 text-white rounded-t-lg">
-          <h1 className="text-lg font-bold">
-            News List
+          <h1 className="text-2xl font-bold">
+            News App
           </h1>
           <Link
             to="add"
@@ -120,7 +120,7 @@ const NewsApp = () => {
                       </Link>
                       <button
                         onClick={() => deleteNews(news.id)}
-                        className="bg-red-500 hover:bg-red-600 text-white font-light py-1 px-4 rounded"
+                        className="bg-red-600 hover:bg-red-600 text-white font-light py-1 px-4 rounded"
                       >
                         Delete
                       </button>

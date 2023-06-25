@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const NotesApp = () => {
-  
+
   const [notes, setNotes] = useState([
     { id: 1, title: 'Note 1', content: 'Content 1' },
     { id: 2, title: 'Note 2', content: 'Content 2' },
@@ -42,11 +42,11 @@ const NotesApp = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Notes App</h1>
-      <div className="mb-4 flex items-center">
+      <div className="mb-4 flex flex-col sm:flex-row">
         <input
           type="text"
           placeholder="Title"
-          className="border border-gray-400 rounded px-2 py-1 mr-2"
+          className="border border-gray-400 rounded px-2 py-1 mb-2 sm:mr-2 sm:mb-0"
           value={currentNote.title}
           onChange={(e) =>
             setCurrentNote({ ...currentNote, title: e.target.value })
@@ -55,7 +55,7 @@ const NotesApp = () => {
         <input
           type="text"
           placeholder="Content"
-          className="border border-gray-400 rounded px-2 py-1 mr-2"
+          className="border border-gray-400 rounded px-2 py-1 mb-2 sm:mr-2 sm:mb-0"
           value={currentNote.content}
           onChange={(e) =>
             setCurrentNote({ ...currentNote, content: e.target.value })
@@ -63,17 +63,17 @@ const NotesApp = () => {
         />
         {currentNote.id ? (
           <button
-            className="bg-blue-500 text-white px-4 py-1 rounded"
+            className="bg-blue-500 text-white px-4 py-1 rounded mb-2 sm:mb-0"
             onClick={updateNote}
           >
             Update
           </button>
         ) : (
           <button
-            className="bg-green-500 text-white px-4 py-1 rounded"
+            className="bg-green-500 hover:bg-green-600 text-white font-light py-2 px-4 rounded"
             onClick={addNote}
           >
-            Add
+            Add New
           </button>
         )}
       </div>
@@ -81,24 +81,26 @@ const NotesApp = () => {
         {notes.map((note) => (
           <li
             key={note.id}
-            className="mb-2 flex items-center justify-between border border-gray-400 rounded px-4 py-2"
+            className="mb-2 border border-gray-400 rounded px-4 py-2"
           >
-            <div>
-              <span className="font-bold">{note.title}</span> - {note.content}
-            </div>
-            <div>
-              <button
-                className="bg-yellow-500 text-white px-2 py-1 rounded ml-2"
-                onClick={() => editNote(note)}
-              >
-                Edit
-              </button>
-              <button
-                className="bg-red-500 text-white px-2 py-1 rounded ml-2"
-                onClick={() => deleteNote(note.id)}
-              >
-                Delete
-              </button>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <div className="mb-2 sm:mb-0">
+                <span className="font-bold">{note.title}</span> - {note.content}
+              </div>
+              <div className="flex space-x-2">
+                <button
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-light py-1 px-4 rounded"
+                  onClick={() => editNote(note)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="bg-red-600 hover:bg-red-600 text-white font-light py-1 px-4 rounded"
+                  onClick={() => deleteNote(note.id)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </li>
         ))}
