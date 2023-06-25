@@ -57,7 +57,7 @@ const EditUser = () => {
             </label>
             <input
               type="text"
-              className="input px-2 py-1"
+              className="w-full p-2 border border-gray-300 rounded"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               placeholder="Author"
@@ -70,7 +70,7 @@ const EditUser = () => {
             </label>
             <input
               type="text"
-              className="input px-2 py-1"
+              className="w-full p-2 border border-gray-300 rounded"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Title"
@@ -83,7 +83,7 @@ const EditUser = () => {
             </label>
             <input
               type="text"
-              className="input px-2 py-1"
+              className="w-full p-2 border border-gray-300 rounded"
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               placeholder="Caption"
@@ -96,7 +96,7 @@ const EditUser = () => {
             </label>
             <div className="control">
               <textarea
-                className="input px-2 py-1"
+                className="w-full p-2 border border-gray-300 rounded"
                 rows="5"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
@@ -111,7 +111,7 @@ const EditUser = () => {
             </label>
             <input
               type="text"
-              className="input px-2 py-1"
+              className="w-full p-2 border border-gray-300 rounded"
               value={image}
               onChange={(e) => setImage(e.target.value)}
               placeholder="Image"
@@ -119,10 +119,16 @@ const EditUser = () => {
           </div>
 
           <div className="flex justify-between">
-            <button type="submit">
+            <button
+              type="submit"
+              className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+            >
               Update
             </button>
-            <Link to={`/`}>
+            <Link
+              to={`/`}
+              className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+            >
               Go Back
             </Link>
           </div>
