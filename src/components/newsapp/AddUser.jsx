@@ -42,7 +42,7 @@ const AddUser = () => {
             </label>
             <input
               type="text"
-              className="input"
+              className="input px-2 py-1"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               placeholder="Author"
@@ -55,7 +55,7 @@ const AddUser = () => {
             </label>
             <input
               type="text"
-              className="input"
+              className="input px-2 py-1"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Title"
@@ -68,7 +68,7 @@ const AddUser = () => {
             </label>
             <input
               type="text"
-              className="input"
+              className="input px-2 py-1"
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               placeholder="Caption"
@@ -81,7 +81,7 @@ const AddUser = () => {
             </label>
             <input
               type="text"
-              className="input"
+              className="input px-2 py-1"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Content"
@@ -94,7 +94,7 @@ const AddUser = () => {
             </label>
             <input
               type="text"
-              className="input"
+              className="input px-2 py-1"
               value={image}
               onChange={(e) => setImage(e.target.value)}
               placeholder="Image"
