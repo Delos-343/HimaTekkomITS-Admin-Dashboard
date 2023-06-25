@@ -15,15 +15,15 @@ const HomePage = () => {
       <div className="w-full py-10 justify-center items-middle font-semibold tracking-wide text-center text-5xl">
         Admin Dashboard
       </div>
-      <div className="flex justify-center mb-5">
-        <ul className="flex space-x-4">
+      <div className="flex justify-center items-center mb-5 tracking-widest">
+        <ul className="flex space-x-14">
           <li
             className={`cursor-pointer text-lg font-semibold ${
-              activeTab === 'dashboard' ? 'text-blue-500' : 'text-gray-500'
+              activeTab === 'notes' ? 'text-blue-500' : 'text-gray-500'
             }`}
-            onClick={() => handleTabClick('dashboard')}
+            onClick={() => handleTabClick('notes')}
           >
-            Dashboard
+            Notes
           </li>
           <li
             className={`cursor-pointer text-lg font-semibold ${
@@ -35,7 +35,7 @@ const HomePage = () => {
           </li>
         </ul>
       </div>
-      {activeTab === 'dashboard' && (
+      {activeTab === 'notes' && (
         <div className="flex justify-center">
           <NotesApp />
         </div>
