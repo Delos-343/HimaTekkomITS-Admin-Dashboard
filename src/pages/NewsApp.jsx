@@ -12,14 +12,14 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="w-full py-10 justify-center items-middle font-thin tracking-wider text-center text-5xl text-white">
+      <div className="w-full py-10 justify-center items-middle font-thin tracking-wider text-center text-5xl text-black">
         Admin Dashboard
       </div>
       <div className="flex justify-center items-center mb-5 tracking-widest">
         <ul className="flex space-x-14">
           <li
             className={`cursor-pointer text-lg font-semibold ${
-              activeTab === 'notes' ? 'text-gray-100' : 'text-gray-400'
+              activeTab === 'notes' ? 'text-gray-900' : 'text-gray-500'
             }`}
             onClick={() => handleTabClick('notes')}
           >
@@ -27,7 +27,7 @@ const HomePage = () => {
           </li>
           <li
             className={`cursor-pointer text-lg font-semibold ${
-              activeTab === 'news' ? 'text-gray-100' : 'text-gray-400'
+              activeTab === 'news' ? 'text-gray-900' : 'text-gray-500'
             }`}
             onClick={() => handleTabClick('news')}
           >
