@@ -45,7 +45,7 @@ const NotesApp = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container bg-white mx-auto px-4 py-3 mt-5 rounded-t-lg shadow-lg">
       <h1 className="text-2xl text-blue-500 font-bold mb-4">
         Notes App
       </h1>
@@ -53,7 +53,7 @@ const NotesApp = () => {
         <input
           type="text"
           placeholder="Title"
-          className="font-semibold border border-gray-400 rounded px-2 py-1 mb-2 sm:mr-2 sm:mb-0"
+          className="border border-gray-400 rounded px-2 py-1 mb-2 sm:mr-2 sm:mb-0"
           value={currentNote.title}
           onChange={(e) =>
             setCurrentNote({ ...currentNote, title: e.target.value })
@@ -92,7 +92,11 @@ const NotesApp = () => {
           >
             <div className="flex flex-col sm:flex-row justify-between items-center">
               <div className="mb-2 sm:mb-0">
-                <span className="font-bold">{note.title}</span> - {note.content}
+                <span className="font-semibold">
+                  {note.title}
+                </span>
+                &nbsp;
+                - {note.content}
               </div>
               <div className="flex space-x-2">
                 <button
