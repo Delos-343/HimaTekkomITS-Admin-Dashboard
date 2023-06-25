@@ -1,3 +1,3 @@
-export { default as AddUser } from './AddUser';
-export { default as EditUser } from './EditUser';
-export { default as UserList } from './UserList';
+export { default as AddNews } from './AddNews';
+export { default as EditNews } from './EditNews';
+export { default as NewsList } from './NewsList';
