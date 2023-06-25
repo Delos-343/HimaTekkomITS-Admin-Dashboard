@@ -49,6 +49,7 @@ const NotesApp = () => {
       <h1 className="text-2xl text-blue-500 font-bold mb-4">
         Notes App
       </h1>
+      <hr className="pt-5" />
       <div className="mb-4 flex flex-col sm:flex-row">
         <input
           type="text"
