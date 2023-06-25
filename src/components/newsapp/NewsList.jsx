@@ -2,25 +2,25 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const UserList = () => {
+const NewsList = () => {
 
-  const [users, setUsers] = useState([]);
+  const [news, setNews] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    getUsers();
+    getNews();
   }, []);
 
-  const getUsers = async () => {
+  const getNews = async () => {
     const response = await axios.get("https://muhdaffawibi.com/news");
-    setUsers(response.data);
+    setNews(response.data);
   };
 
-  const deleteUser = async (id) => {
+  const deleteNews = async (id) => {
     try {
       await axios.delete(`https://muhdaffawibi.com/news/${id}`);
-      getUsers();
+      getNews();
     } catch (error) {
       console.log(error);
     }
@@ -33,9 +33,9 @@ const UserList = () => {
 
   const firstIndex = lastIndex - itemsPerPage;
 
-  const currentUsers = users.slice(firstIndex, lastIndex);
+  const currentNews = news.slice(firstIndex, lastIndex);
 
-  const totalPages = Math.ceil(users.length / itemsPerPage);
+  const totalPages = Math.ceil(news.length / itemsPerPage);
 
   const changePage = (page) => {
     setCurrentPage(page);
@@ -45,7 +45,9 @@ const UserList = () => {
     <div className="flex justify-center mt-5">
       <div className="container bg-white rounded-lg shadow-lg">
         <div className="flex justify-between items-center px-4 py-2 bg-blue-500 text-white rounded-t-lg">
-          <h1 className="text-lg font-bold">User List</h1>
+          <h1 className="text-lg font-bold">
+            News List
+          </h1>
           <Link
             to="add"
             className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
@@ -81,43 +83,43 @@ const UserList = () => {
               </tr>
             </thead>
             <tbody>
-              {currentUsers.map((user, index) => (
+              {currentNews.map((news, index) => (
                 <tr
-                  key={user.id}
+                  key={news.id}
                   className={`${index % 2 === 0 ? "bg-gray-100" : "bg-white"}`}
                 >
                   <td className="py-3 px-4 border-b">
                     {index + 1 + itemsPerPage * (currentPage - 1)}
                   </td>
                   <td className="py-3 px-4 border-b">
-                    {user.author}
+                    {news.author}
                   </td>
                   <td className="py-3 px-4 border-b">
-                    {user.title}
+                    {news.title}
                   </td>
                   <td className="py-3 px-4 border-b">
-                    {user.caption}
+                    {news.caption}
                   </td>
                   <td className="py-3 px-4 border-b">
-                    {user.content}
+                    {news.content}
                   </td>
                   <td className="py-3 px-4 border-b">
                     <img
-                      src={user.image}
-                      alt="User Image"
+                      src={news.image}
+                      alt="News Image"
                       className="h-14 w-18 object-cover"
                     />
                   </td>
                   <td className="py-3 px-4 border-b">
                     <div className="flex space-x-2">
                       <Link
-                        to={`edit/${user.id}`}
+                        to={`edit/${news.id}`}
                         className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded"
                       >
                         Edit
                       </Link>
                       <button
-                        onClick={() => deleteUser(user.id)}
+                        onClick={() => deleteNews(news.id)}
                         className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded"
                       >
                         Delete
@@ -152,4 +154,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default NewsList;
