@@ -1,8 +1,8 @@
 require('dotenv').config()
-const express = require('express');
-const bodyParser = require('body-parser');
-const { Sequelize, DataTypes } = require('sequelize');
-const cors = require('cors'); // Add this line
+import express from 'express';
+import json from 'body-parser';
+import { Sequelize, DataTypes } from 'sequelize';
+import cors from 'cors';
 
 // Create an instance of Express.js
 const app = express();
@@ -10,7 +10,7 @@ const app = express();
 app.use(cors()); // Add this line
 
 // Set up body-parser middleware
-app.use(bodyParser.json());
+app.use(json());
 
 // Set up MySQL connection using Sequelize
 const sequelize = new Sequelize('n1572535_beritahimpunantekkomits', 'n1572535_daffawibi', 'banyakbelajarpintar123', {
@@ -23,9 +23,7 @@ const sequelize = new Sequelize('n1572535_beritahimpunantekkomits', 'n1572535_da
 const Notes = sequelize.define('Notes', {
   author: DataTypes.STRING,
   title: DataTypes.STRING,
-  caption: DataTypes.TEXT,
   content: DataTypes.TEXT,
-  image: DataTypes.STRING,
 });
 
 // Create the table if it doesn't exist
