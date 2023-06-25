@@ -46,7 +46,7 @@ const NotesApp = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">
+      <h1 className="text-2xl text-blue-500 font-bold mb-4">
         Notes App
       </h1>
       <div className="mb-4 flex flex-col sm:flex-row">
@@ -77,10 +77,10 @@ const NotesApp = () => {
           </button>
         ) : (
           <button
-            className="bg-green-500 text-white px-4 py-1 rounded mb-2 sm:mb-0"
+            className="bg-green-500 hover:bg-green-600 text-white font-light py-2 px-4 rounded"
             onClick={addNote}
           >
-            Add
+            Add New
           </button>
         )}
       </div>
@@ -94,15 +94,15 @@ const NotesApp = () => {
               <div className="mb-2 sm:mb-0">
                 <span className="font-bold">{note.title}</span> - {note.content}
               </div>
-              <div>
+              <div className="flex space-x-2">
                 <button
-                  className="bg-yellow-500 text-white px-2 py-1 rounded sm:mr-2"
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-light py-1 px-4 rounded"
                   onClick={() => editNote(note)}
                 >
                   Edit
                 </button>
                 <button
-                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  className="bg-red-600 hover:bg-red-600 text-white font-light py-1 px-4 rounded"
                   onClick={() => deleteNote(note.id)}
                 >
                   Delete
