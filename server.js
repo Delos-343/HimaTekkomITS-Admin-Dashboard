@@ -1,16 +1,14 @@
-require('dotenv').config()
-import express from 'express';
-import json from 'body-parser';
-import { Sequelize, DataTypes } from 'sequelize';
-import cors from 'cors';
+require('dotenv').config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const { Sequelize, DataTypes } = require('sequelize');
+const cors = require('cors');
 
 // Create an instance of Express.js
 const app = express();
 
-app.use(cors()); // Add this line
-
-// Set up body-parser middleware
-app.use(json());
+app.use(cors());
+app.use(bodyParser.json());
 
 // Set up MySQL connection using Sequelize
 const sequelize = new Sequelize('n1572535_beritahimpunantekkomits', 'n1572535_daffawibi', 'banyakbelajarpintar123', {
@@ -21,27 +19,26 @@ const sequelize = new Sequelize('n1572535_beritahimpunantekkomits', 'n1572535_da
 
 // Define Notes model
 const Notes = sequelize.define('Notes', {
-  id: DataTypes.INTEGER,
-  author: DataTypes.STRING,
   title: DataTypes.STRING,
-  content: DataTypes.TEXT,
+  toDo: DataTypes.STRING,
+  dates: DataTypes.STRING,
 });
 
 // Create the table if it doesn't exist
 Notes.sync();
 
 // Create a note
-app.post('/note', async (req, res) => {
+app.post('/notes', async (req, res) => {
   try {
-    const notes = await Notes.create(req.body);
-    res.json(notes);
+    const note = await Notes.create(req.body);
+    res.json(note);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
 // Get all notes
-app.get('/note', async (req, res) => {
+app.get('/notes', async (req, res) => {
   try {
     const notes = await Notes.findAll();
     res.json(notes);
@@ -51,11 +48,11 @@ app.get('/note', async (req, res) => {
 });
 
 // Get a note by ID
-app.get('/note/:id', async (req, res) => {
+app.get('/notes/:id', async (req, res) => {
   try {
-    const notes = await Notes.findByPk(req.params.id);
-    if (notes) {
-      res.json(notes);
+    const note = await Notes.findByPk(req.params.id);
+    if (note) {
+      res.json(note);
     } else {
       res.status(404).json({ error: 'Note not found' });
     }
@@ -65,7 +62,7 @@ app.get('/note/:id', async (req, res) => {
 });
 
 // Update a note by ID
-app.put('/note/:id', async (req, res) => {
+app.put('/notes/:id', async (req, res) => {
   try {
     const [updatedRows] = await Notes.update(req.body, {
       where: { id: req.params.id },
@@ -81,7 +78,7 @@ app.put('/note/:id', async (req, res) => {
 });
 
 // Delete a note by ID
-app.delete('/note/:id', async (req, res) => {
+app.delete('/notes/:id', async (req, res) => {
   try {
     const deletedRows = await Notes.destroy({ where: { id: req.params.id } });
     if (deletedRows === 1) {
@@ -94,7 +91,7 @@ app.delete('/note/:id', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000;
 
 // Start the server
 app.listen(PORT, () => {
