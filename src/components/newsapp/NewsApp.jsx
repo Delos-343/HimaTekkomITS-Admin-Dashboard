@@ -65,13 +65,13 @@ const NewsApp = () => {
                 <th className="py-2 px-4 border-b font-semibold">
                   Author
                 </th>
-                <th className="py-2 px-4 border-b font-semibold">
+                <th className="py-2 px-4 border-b font-semibold hidden sm:block">
                   Title
                 </th>
-                <th className="py-2 px-4 border-b font-semibold">
+                <th className="py-2 px-4 border-b font-semibold hidden sm:block">
                   Caption
                 </th>
-                <th className="py-2 px-4 border-b font-semibold">
+                <th className="py-2 px-4 border-b font-semibold hidden sm:block">
                   Content
                 </th>
                 <th className="py-2 px-4 border-b font-semibold">
@@ -94,15 +94,17 @@ const NewsApp = () => {
                   <td className="py-3 px-4 border-b">
                     {news.author}
                   </td>
-                  <td className="py-3 px-4 border-b">
+                  <td className="py-3 px-4 border-b hidden sm:block">
                     {news.title}
                   </td>
-                  <td className="py-3 px-4 border-b">
+                  <td className="py-3 px-4 border-b hidden sm:block">
                     {news.caption}
                   </td>
-                  <td className="py-3 px-4 border-b">
-                    {news.content}
-                  </td>
+                  <div className="m-auto truncate overflow-hidden w-96 hidden sm:block">
+                    <td className="py-3 px-4 border-b">
+                      {news.content}
+                    </td>
+                  </div>
                   <td className="py-3 px-4 border-b">
                     <img
                       src={news.image}
@@ -111,16 +113,16 @@ const NewsApp = () => {
                     />
                   </td>
                   <td className="py-3 px-4 border-b">
-                    <div className="flex space-x-2">
+                    <div className="grid sm:flex justify-center items-center space-x-2">
                       <Link
                         to={`edit/${news.id}`}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-light py-1 px-4 rounded"
+                        className="bg-blue-500 hover:bg-blue-600 text-white text-center font-light my-2 sm:m-0 py-1 px-4 rounded"
                       >
                         Edit
                       </Link>
                       <button
                         onClick={() => deleteNews(news.id)}
-                        className="bg-red-600 hover:bg-red-600 text-white font-light py-1 px-4 rounded"
+                        className="bg-red-600 hover:bg-red-600 text-white text-center font-light my-2 sm:m-0 py-1 px-4 rounded"
                       >
                         Delete
                       </button>
