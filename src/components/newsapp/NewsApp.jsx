@@ -65,13 +65,13 @@ const NewsApp = () => {
                 <th className="py-2 px-4 border-b font-semibold">
                   Author
                 </th>
-                <th className="py-2 px-4 border-b font-semibold hidden sm:block">
+                <th className="py-2 px-4 border-b font-semibold">
                   Title
                 </th>
-                <th className="py-2 px-4 border-b font-semibold hidden sm:block">
+                <th className="py-2 px-4 border-b font-semibold">
                   Caption
                 </th>
-                <th className="py-2 px-4 border-b font-semibold hidden sm:block">
+                <th className="py-2 px-4 border-b font-semibold">
                   Content
                 </th>
                 <th className="py-2 px-4 border-b font-semibold">
@@ -94,13 +94,13 @@ const NewsApp = () => {
                   <td className="py-3 px-4 border-b">
                     {news.author}
                   </td>
-                  <td className="py-3 px-4 border-b hidden sm:block">
+                  <td className="py-3 px-4 border-b">
                     {news.title}
                   </td>
-                  <td className="py-3 px-4 border-b hidden sm:block">
+                  <td className="py-3 px-4 border-b">
                     {news.caption}
                   </td>
-                  <div className="m-auto truncate overflow-hidden w-96 hidden sm:block">
+                  <div className="m-auto truncate overflow-hidden w-96">
                     <td className="py-3 px-4 border-b">
                       {news.content}
                     </td>
