@@ -55,7 +55,7 @@ const NewsApp = () => {
             Add New
           </Link>
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto justify-center items-center">
           <table className="min-w-full">
             <thead>
               <tr className="bg-gray-50">
@@ -100,11 +100,11 @@ const NewsApp = () => {
                   <td className="py-3 px-4 border-b">
                     {news.caption}
                   </td>
-                  <div className="m-auto truncate overflow-hidden w-96">
-                    <td className="py-3 px-4 border-b">
+                   <td className="py-3 px-4 border-b">
+                    <div className="m-auto truncate overflow-hidden w-96 text-left">
                       {news.content}
-                    </td>
-                  </div>
+                    </div>
+                  </td>
                   <td className="py-3 px-4 border-b">
                     <img
                       src={news.image}
