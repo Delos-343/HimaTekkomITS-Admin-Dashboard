@@ -64,7 +64,7 @@ const NotesApp = () => {
       <h1 className="text-2xl text-blue-500 font-bold mb-4">
         Notes App
       </h1>
-      <hr className="pt-5" />
+      <hr className="mb-5 text-gray-300" />
       <div className="mb-4">
         <input
           type="text"
