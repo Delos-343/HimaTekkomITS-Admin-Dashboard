@@ -60,12 +60,12 @@ const NotesApp = () => {
   };
 
   return (
-    <div className="container bg-white mx-auto px-4 py-3 mt-5 rounded-t-lg shadow-lg">
+    <div className="grid w-full flex-col sm:flex-row bg-white mx-auto px-4 py-3 mt-5 rounded-t-lg shadow-lg">
       <h1 className="text-2xl text-blue-500 font-bold mb-4">
         Notes App
       </h1>
       <hr className="pt-5" />
-      <div className="mb-4 flex flex-col sm:flex-row">
+      <div className="mb-4">
         <input
           type="text"
           placeholder="Title"
@@ -100,17 +100,17 @@ const NotesApp = () => {
         {notes.map((note) => (
           <li key={note.id} className="flex flex-col sm:flex-row justify-between align-middle mb-2 bg-gray-100 rounded px-4 py-2">
             <div className="flex flex-col sm:flex-row justify-start items-center">
-              <div className="mb-2 sm:mb-0">
+              <div className="my-2 sm:m-0">
                 {note.title}
               </div>
             </div>
-            <div className="flex justify-center items-center">
-              <div className="mb-2 sm:mb-0">
+            <div className="flex justify-center items-center md:justify-start md:items-start">
+              <div className="mb-6 mt-4 sm:m-auto text-left">
                 {note.toDo}
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <div className="flex space-x-2">
+              <div className="flex space-x-2 my-2 sm:m-0">
                 <button
                   className="bg-blue-500 hover:bg-blue-600 text-white font-light py-1 px-4 rounded"
                   onClick={() => editNote(note)}
