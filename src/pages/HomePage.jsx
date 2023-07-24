@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NewsApp } from "../components/newsapp";
 import { NotesApp } from "../components/notesapp";
+import { YoutubeApp } from '../components/youtubeapp';
 
 const HomePage = () => {
   
@@ -33,6 +34,14 @@ const HomePage = () => {
           >
             News
           </li>
+          <li
+            className={`cursor-pointer text-lg font-semibold ${
+              activeTab === 'youtubeID' ? 'text-gray-900' : 'text-gray-500'
+            }`}
+            onClick={() => handleTabClick('youtubeID')}
+          >
+           YoutubeID
+          </li>
         </ul>
       </div>
       {activeTab === 'notes' && (
@@ -40,9 +49,9 @@ const HomePage = () => {
           <NotesApp />
         </div>
       )}
-      {activeTab === 'news' && (
+      {activeTab === 'youtubeID' && (
         <div className="flex justify-center">
-          <NewsApp />
+          <YoutubeApp />
         </div>
       )}
     </>
