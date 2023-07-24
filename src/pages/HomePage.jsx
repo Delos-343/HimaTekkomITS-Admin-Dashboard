@@ -44,6 +44,11 @@ const HomePage = () => {
           </li>
         </ul>
       </div>
+      {activeTab === 'news' && (
+        <div className="flex justify-center">
+          <NewsApp />
+        </div>
+      )}
       {activeTab === 'notes' && (
         <div className="flex justify-center">
           <NotesApp />

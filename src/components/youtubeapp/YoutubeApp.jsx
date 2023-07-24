@@ -44,7 +44,7 @@ const YoutubeApp = () => {
 
   const deleteNote = async (id) => {
     try {
-      await axios.delete(`https://muhdaffawibi.com/youtubeIds/${id}`);
+      await axios.delete(`https://muhdaffawibi.com/youtubeId/${id}`);
       setYotubeIDs(youtubeIds.filter((youtubeId) => youtubeId.id !== id));
     } catch (error) {
       console.error('Error deleting youtubeId:', error);
@@ -100,13 +100,13 @@ const YoutubeApp = () => {
               <div className="flex space-x-2 my-2 sm:m-0">
                 <button
                   className="bg-blue-500 hover:bg-blue-600 text-white font-light py-1 px-4 rounded"
-                  onClick={() => editNote(note)}
+                  onClick={() => editNote(youtubeId)}
                 >
                   Edit
                 </button>
                 <button
                   className="bg-red-600 hover:bg-red-600 text-white font-light py-1 px-4 rounded"
-                  onClick={() => deleteNote(note.id)}
+                  onClick={() => deleteNote(youtubeId.id)}
                 >
                   Delete
                 </button>
